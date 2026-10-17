@@ -52,7 +52,7 @@ jobs:
       - name: setting kubeconfig
         run: |
           mkdir -p ~/.kube
-          echo "${{ secrets.KUBECONFIG_B64 }}" | base64 -d > ~/.kube/config
+          echo "${{ secrets.KUBECONFIG_SECRET }}" | base64 -d > ~/.kube/config
           chmod 600 ~/.kube/config
 
       - name: deployment to k3s cluster
