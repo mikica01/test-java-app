@@ -54,6 +54,6 @@ jobs:
 
       - name: deployment to k3s cluster
         run: |
-          sed -i "s#IMAGE_PLACEHOLDER#${IMAGE}#" deployment.yaml
-          kubectl apply -f deployment.yaml
+          sed -i "s#IMAGE_PLACEHOLDER#${IMAGE}#" k8s/deployment.yaml
+          kubectl apply -f k8s/
           kubectl rollout status deployment/test-app --timeout=180s

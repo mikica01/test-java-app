@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-app
+  template:
+    metadata:
+      labels:
+        app: test-app
+    spec:
+      imagePullSecrets:
+        - name: test-app-image-pull-secret
+      containers:
+        - name: test-app-container
+          image: IMAGE_PLACEHOLDER
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "256Mi"
+            limits:
+              memory: "512Mi"
