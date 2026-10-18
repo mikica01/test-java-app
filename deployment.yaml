@@ -12,6 +12,8 @@ spec:
       labels:
         app: test-app
     spec:
+      imagePullSecrets:
+        - name: test-app-image-pull-secret
       containers:
         - name: test-app-container
           image: IMAGE_PLACEHOLDER
